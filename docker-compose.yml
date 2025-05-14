@@ -16,8 +16,24 @@ services:
     networks:
       - noteapp-network
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: noteapp-phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - noteapp-network
+
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: noteapp-backend
     depends_on:
       - mysql
@@ -27,6 +43,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/noteapp?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
+    volumes:
+      - ./src:/app/src
     networks:
       - noteapp-network
 
