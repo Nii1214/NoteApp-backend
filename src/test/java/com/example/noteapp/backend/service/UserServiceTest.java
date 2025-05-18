@@ -1,7 +1,6 @@
 package com.example.noteapp.backend.service;
 
 import com.example.noteapp.backend.entity.User;
-import com.example.noteapp.backend.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +21,6 @@ public class UserServiceTest {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private UserRepository userRepository;
 
     private User testUser;
 
