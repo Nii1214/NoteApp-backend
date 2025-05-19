@@ -41,7 +41,7 @@ class UserControllerTest {
         user.setPassword("password");
         user.setCreatedAt(now);
         user.setUpdatedAt(now);
-        user.setStatus(User.UserStatus.ACTIVE);
+        user.setStatus(User.UserStatus.active);
         return user;
     }
 

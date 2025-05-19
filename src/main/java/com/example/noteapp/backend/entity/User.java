@@ -40,11 +40,11 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UserStatus status = UserStatus.ACTIVE;
+    private UserStatus status = UserStatus.active;
 
     public static enum UserStatus {
-        ACTIVE,
-        INACTIVE,
-        BANNED
+        active,
+        inactive,
+        banned
     }
 }
