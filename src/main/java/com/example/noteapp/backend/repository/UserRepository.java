@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username); // Spring Security が使う認証用
+    Optional<User> findByEmail(String email);
 } 
